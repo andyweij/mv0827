@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.showRed{color:red}
+</style>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+</script>
+
+<p class="showRed">Hi Andy Hsu</p>
+<p id="phone">0970990770</p>
+<button id="B1">TEST1</button><button id="B2">TEST2</button>
+<script>
+function B2_CLICK(){
+	$("#phone");
+}
+function start(){
+	//alert("Test jquery");
+	$("#B1").click(function(){
+		$("#phone").addClass("showRed");
+	})
+	
+		$("#B2").click(B2_CLICK)
+	
+}
+$(document).ready(start);
+</script>
+</body>
+</html>
