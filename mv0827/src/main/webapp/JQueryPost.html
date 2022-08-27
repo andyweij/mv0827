@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.10/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function () {
+        $("button").click(function () {
+            $.post("Test2.jsp",
+            {
+                name: "王小明",
+                city: "台北"
+            },
+            function (data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+            });
+        });
+    });
+</script>
+</head>
+<body>
+
+<button>Send an HTTP POST request to a page and get the result back</button>
+
+</body>
+</html>

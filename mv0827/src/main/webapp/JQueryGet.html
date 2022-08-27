@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+</script>
+<h1>Show Test.jsp</h1>
+<script>
+    function result(data,status){
+    	//alert(status);
+    	$("#message").html(data);
+    }
+
+    $(document).ready(function () {
+        $("button").click(function () {
+            $.get("FirstjQuery.html", result);
+        });
+    });
+</script>
+</head>
+<body>
+
+<button>Send an HTTP GET request to a page and get the result back</button>
+<div id="message"></div>
+</body>
+</html>
