@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+</script>
+<title>jQueryAjax</title>
+<script>
+var Submit=function(){
+	var URLs="Test2.jsp";
+	$.ajax({
+		url:URLs,
+		data:$('#sentToBack').serialize(),
+		contextType:'application/x-www-form-unlencoded',
+		type:"POST",
+		dataType:'html',
+		success:function(data){
+			//alert(data);
+			$('#msg').html(data);
+		},
+		error:function(xhr,ajaxOptions,thrownError){
+			alert(xhr.status);
+			alert(thrownError);
+		}
+	});
+	
+};
+</script>
+</head>
+
+<body>
+	<form id="sentToBack">
+	<input type="text" name="name" value="Andy"/><br/>
+	<input type="text" name="city" value="Taipei"/><br/>
+	<input type="button" value="送出" onclick="Submit()"/>
+	</form>
+	<div id="msg"></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    /*
+         dataType：預期Server傳回的資料類型，如果沒指定，
+            jQuery會根據HTTP MIME Type自動選擇以responseXML或responseText傳入你的success callback。
+        可選的資料類型有：
+          xml：傳回可用jQuery處理的XML
+          html：傳回HTML，包含jQuery會自動幫你處理的script tags。          
+          json：傳回JSON        
+          text：傳回純文字字串
+          http://localhost:8080/mv0827/api/customers/one
+    */
+    var Submit = function () {    	
+        var URLs = "api/customers/one";
+        $.ajax({
+            url: URLs,
+            data: "",
+            contentType:'application/x-www-form-urlencoded' ,
+            type: "GET",
+            dataType: 'json',
+            success: function (data) {
+                //alert(data);
+                var st=JSON.stringify(data);
+                $("#msg").html(st);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+
+    };
+        </script>
+    </head>
+    <body>
+        <form id="sentToBack">
+            <input type="text" id="name" value="Mary"/> <br/>
+            <input type="text" id="city" value="Taipei"/> <br/>
+            <input type="button"  value="送出" onclick="Submit()"/>
+        </form>
+        <div id="msg"></div>
+    </body>
+</html>

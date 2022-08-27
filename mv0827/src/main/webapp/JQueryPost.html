@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.10/jquery.min.js">
+<meta charset="UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
 </script>
 <script>
     $(document).ready(function () {
@@ -12,7 +13,8 @@
                 city: "台北"
             },
             function (data, status) {
-                alert("Data: " + data + "\nStatus: " + status);
+                //alert("Data: " + data + "\nStatus: " + status);
+                $("#msg").html(data);
             });
         });
     });
@@ -21,6 +23,6 @@
 <body>
 
 <button>Send an HTTP POST request to a page and get the result back</button>
-
+<div id="msg"></div>
 </body>
 </html>

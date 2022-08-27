@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+        var Submit = function () {
+    	var obj={};
+    	obj.id=$("#id").val();
+    	obj.username=$("#username").val();
+    	obj.age=$("#age").val();
+        var URLs = "api/student/post";
+        $.ajax({
+            url: URLs,
+            data: JSON.stringify(obj),
+            contentType:'application/json' ,
+            type: "POST",
+            dataType: 'html',
+            success: function (data) {
+                //alert(data);
+                $("#msg").html(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+
+    };
+        </script>
+    </head>
+    <body>
+        <form id="sentToBack">
+            <input type="text" id="id" value="100"/> <br/>
+            <input type="text" id="username" value="Teddy"/> <br/>
+            <input type="text" id="age" value="30"/> <br/>
+            <input type="button"  value="送出" onclick="Submit()"/>
+        </form>
+        <div id="msg"></div>
+    </body>
+</html>
